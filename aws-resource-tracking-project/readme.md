@@ -8,3 +8,7 @@ In this project, we will automate the process of tracking resources in the AWS c
 
 Approach:
 Write a shell script that will run AWS CLI commands to list the required resources.
+
+How to use:
+1) Ensure aws is configured on a machine.
+2) Simply run the shell script and output will show list of S3 buckets and EC2 instances.
