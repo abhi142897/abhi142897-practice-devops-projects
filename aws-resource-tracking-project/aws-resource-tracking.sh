@@ -3,7 +3,7 @@
 #Aws resoucre tracking script
 
 
-echo `date +"%Y-%M-%d %T"`" - AWS resource tracking started" >> /k8sPractice/log.txt
+echo `date +"%Y-%M-%d %T"`" - AWS resource tracking started" >> resource-tracking.log
 
 #list aws s3 buckets
 echo "Print list of s3 buckets"
