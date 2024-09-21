@@ -33,3 +33,19 @@ Commit and push your changes to the branch configured in your AWS CodePipeline.
 Head over to the AWS CodePipeline console and navigate to your pipeline.
 You should see the pipeline automatically kick off as soon as it detects the changes in your repository.
 Sit back and relax while AWS CodePipeline takes care of the rest. It will fetch the latest code, trigger the build process with AWS CodeBuild, and deploy the application if you configured the deployment stage.
+
+
+CodeDeploy Steps
+Go to CodeDeploy and create an application.
+Create an EC2 instance and install the CodeDeploy agent on it. You can follow the installation guide here -> 
+https://docs.aws.amazon.com/codedeploy/latest/userguide/codedeploy-agent-operations-install-ubuntu.html
+Create a role to grant the EC2 instance permission to communicate with CodeDeploy. Assign the CodeDeploy full access policy to this role.
+Attach the role to the EC2 instance and restart the CodeDeploy agent service on the instance.
+Similarly, create a role for CodeDeploy with full EC2 instance access.
+In CodeDeploy, create a deployment group and attach the previously created role. Ensure to provide the Git repository and the latest commit ID. The appspec.yml and the scripts folder referenced in appspec.yml should be present at the root level of the repository.
+
+Final Steps
+Go to CodePipeline, click on Edit, then Add Stage, and add a CodeDeploy stage. Select AWS CodeDeploy as the provider, and enter the application name and deployment group name created earlier.
+
+Flow Overview
+When a push occurs in GitHub, the source stage in CodePipeline will pull the latest code. CodeBuild will then be triggered with this latest code. After a successful build, the Docker image will be pushed to Docker Hub, and the deployment stage will be triggered, using the pushed Docker image to deploy it on the server.
