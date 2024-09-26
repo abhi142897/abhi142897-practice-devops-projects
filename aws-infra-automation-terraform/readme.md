@@ -1,6 +1,6 @@
-AWS infra automation project:
 
-# Terraform Project Summary
+
+# AWS infra automation project
 
 ## Problem Statement
 The goal of this Terraform project is to automate the deployment of a basic infrastructure on AWS that includes a Virtual Private Cloud (VPC), subnets, security groups, instances, an application load balancer (ALB), and an S3 bucket. The challenge is to ensure that these resources are properly configured to work together while utilizing Terraform's modularity and variable management features for flexibility and scalability.
